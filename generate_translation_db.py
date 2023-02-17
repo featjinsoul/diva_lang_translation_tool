@@ -19,8 +19,8 @@ pv_db = divatree.read(raw_pv_db)
 for pv in pv_db:
     if "lyric_en" in pv_db[pv]:
         lyric_en_range = range(len(pv_db[pv]["lyric_en"]))
-        lyric_new_trash_range = range(len(pv_db[pv]["lyric_new"]))
-        if lyric_en_range == lyric_new_trash_range:
+        lyric_new_range = range(len(pv_db[pv]["lyric_new"]))
+        if lyric_en_range == lyric_new_range:
             for lyric in range(len(pv_db[pv]["lyric_en"])):
                 if str(pv_db[pv]["lyric_en"][lyric]) == "" or (str(pv_db[pv]["lyric_en"][lyric]) == str(pv_db[pv]["lyric_new"][lyric])):
                     pass
@@ -58,7 +58,7 @@ new = "{}"
 # """.format(create_unique_array_name, cleaned_str_old, cleaned_str_new))
 #                         with open("diva_main_region_pv_db.toml", 'a+', encoding="utf-8") as f:
 #                             f.write(base_array)
-        if lyric_en_range != lyric_new_trash_range:
+        if lyric_en_range != lyric_new_range:
             print(pv + " must be manually fixed. The lyric indexes between the two do not match.")
             #create_unique_array_name = tomlarray()
             #pv_lyric_array.add_line("old", cleaned_str_old)
